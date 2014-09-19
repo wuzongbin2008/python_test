@@ -1,0 +1,7 @@
+[2014-09-03 15:17:44,820 s3_example.py:76 INFO] uplaod_file key='DONOT_README' ok out='code=200 reason=OK out='
+[2014-09-03 15:19:17,881 s3_example.py:76 INFO] uplaod_file key='3271972257/portraits/3271972257.01.50' ok out='code=200 reason=OK out='
+[2014-09-03 15:20:10,484 s3_example.py:76 INFO] uplaod_file key='3271972257/portraits/3271972257.01.50' ok out='code=200 reason=OK out='
+[2014-09-03 15:32:02,076 s3_example.py:76 INFO] uplaod_file key='3271972257/portraits/3271972257.01.50' ok out='code=200 reason=OK out='
+[2014-09-03 15:34:04,408 s3_example.py:76 INFO] uplaod_file key='1378181244/portraits/1378181244.01.50' ok out='code=200 reason=OK out='
+[2014-09-03 15:37:02,416 s3_example.py:76 INFO] uplaod_file key='1378181244/portraits/1378181244.01.50' ok out='code=200 reason=OK out='
+[2014-09-03 15:39:20,733 s3_example.py:76 INFO] uplaod_file key='1378181244/portraits/1378181244.01.50' ok out='code=200 reason=OK out='
