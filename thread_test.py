@@ -2,6 +2,7 @@ import logging
 import threading
 import time
 import os
+import datetime
 from common import worker2
 
 logging.basicConfig(level=logging.DEBUG,format='(%(threadName)-10s) %(message)s',)
@@ -57,20 +58,38 @@ def semaphore_test():
         print (threading.currentThread().getName() + ' release semaphore')
 
 def daemon():
-    logging.debug("Starting")
-    time.sleep(12)
-    logging.debug("Exiting")
+    global n
+    logging.debug("%d Starting" % datetime.datetime.now().time().microsecond)
+    time.sleep(3)
+    logging.debug("%d Exiting" % datetime.datetime.now().time().microsecond)
+    n +=1
+    logging.debug("n = %d\n" % n)
+    #print "daemon n = %d\n" % n
 
 def non_daemon():
-    logging.debug("Starting")
-    logging.debug("Exiting")
+    global n
+    logging.debug("%d Starting" % datetime.datetime.now().time().microsecond)
+    logging.debug("%d Exiting" % datetime.datetime.now().time().microsecond)
+    n +=1
+    logging.debug("n = %d\n" % n)
 
 def join_test():
     d = threading.Thread(name="daemon",target=daemon)
     t = threading.Thread(name="non-daemon",target=non_daemon)
     d.start()
     t.start()
+    d.join()
+    t.join()
+
+def print_t():
+    print "ok"
 
 semaphore = threading.Semaphore(10)
+
 if __name__ == "__main__":
+
+    n2 = datetime.datetime.now()
     join_test()
+    n+=1
+    logging.debug("__main__ n = %d\n" % n)
+    #print "%d ok" % datetime.datetime.now().microsecond
