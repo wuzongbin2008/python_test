@@ -5,8 +5,9 @@ import os
 import datetime
 from common import worker2
 
-logging.basicConfig(level=logging.DEBUG,format='(%(threadName)-10s) %(message)s',)
+logging.basicConfig(level=logging.DEBUG,format='%(asctime)s (%(threadName)-10s) %(message)s',)
 n = 0
+#semaphore = threading.Semaphore(10)
 
 def lock_holder(lock):
     logging.debug("Starting")
@@ -54,8 +55,8 @@ def semaphore_test():
     if semaphore.acquire():
         for i in range(5):
           print (threading.currentThread().getName() + ': get semaphore_%d\n' % i)
-        semaphore.release()
-        print (threading.currentThread().getName() + ' release semaphore')
+        #semaphore.release()
+    print (threading.currentThread().getName() + ' release semaphore')
 
 def daemon():
     global n
@@ -84,12 +85,32 @@ def join_test():
 def print_t():
     print "ok"
 
-semaphore = threading.Semaphore(10)
+class ActivePool(object):
+    def __init__(self):
+        super(ActivePool,self).__init__()
+        self.active = []
+        self.lock = threading.Lock()
+    def makeActive(self,name):
+        with self.lock:
+            self.active.append(name)
+            logging.debug("Running:%s",self.active)
+    def makeInactive(self,name):
+        with self.lock:
+            self.active.remove(name)
+            logging.debug("Running:%s",self.active)
+
+def worker(s,pool):
+    logging.debug("Waiting to join the pool")
+    with s:
+        name = threading.currentThread().getName()
+        pool.makeActive(name)
+        time.sleep(0.1)
+        pool.makeInactive(name)
 
 if __name__ == "__main__":
 
-    n2 = datetime.datetime.now()
-    join_test()
-    n+=1
-    logging.debug("__main__ n = %d\n" % n)
-    #print "%d ok" % datetime.datetime.now().microsecond
+    pool = ActivePool()
+    s = threading.Semaphore(2)
+    for i in range(4):
+        t = threading.Thread(target=worker,name=str(i),args=(s,pool))
+        t.start()

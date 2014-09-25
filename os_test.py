@@ -17,3 +17,8 @@ def process_info():
         'rss':l[5],
         'start_time':l[6]}
     return info
+
+print 1%256
+# files = os.listdir("/home/wj/")
+# for f in files:
+#     print f

@@ -5,6 +5,5 @@ str = '{"version":1,"callbacks":1,"param":{"uid":222,"pid":333,"count":1,"size":
 
 a=json.loads(str)
 
-print a
-print a.get('version', '')
-print a['param']['uid']
+for i in range(3):
+    print i
