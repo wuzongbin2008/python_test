@@ -107,10 +107,12 @@ def worker(s,pool):
         time.sleep(0.1)
         pool.makeInactive(name)
 
-if __name__ == "__main__":
-
+def ActivePool_test():
     pool = ActivePool()
     s = threading.Semaphore(2)
     for i in range(4):
         t = threading.Thread(target=worker,name=str(i),args=(s,pool))
         t.start()
+
+if __name__ == "__main__":
+    ActivePool_test()

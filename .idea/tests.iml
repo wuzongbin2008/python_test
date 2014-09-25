@@ -4,7 +4,7 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="lost_file_check" />
+    <orderEntry type="module" module-name="sto_integrity_check" />
   </component>
 </module>
 
