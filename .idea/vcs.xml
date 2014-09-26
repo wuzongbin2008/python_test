@@ -5,6 +5,7 @@
     <mapping directory="$PROJECT_DIR$/../../imgbed_tools" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../lost_file_check" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../sto_integrity_check" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../weibo/backend/trunk" vcs="svn" />
   </component>
 </project>
 

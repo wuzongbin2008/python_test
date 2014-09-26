@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../../imgbed_tools/.idea/imgbed_tools.iml" filepath="$PROJECT_DIR$/../../imgbed_tools/.idea/imgbed_tools.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/tests.iml" filepath="$PROJECT_DIR$/.idea/tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../weibo/backend/trunk/.idea/trunk.iml" filepath="$PROJECT_DIR$/../../weibo/backend/trunk/.idea/trunk.iml" />
     </modules>
   </component>
 </project>

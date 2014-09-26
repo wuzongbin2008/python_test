@@ -5,6 +5,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="imgbed_tools" />
+    <orderEntry type="module" module-name="trunk" />
   </component>
 </module>
 
