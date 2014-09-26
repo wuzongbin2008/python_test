@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="" />
+    <mapping directory="$PROJECT_DIR$/../../imgbed_tools" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../lost_file_check" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../sto_integrity_check" vcs="Git" />
   </component>

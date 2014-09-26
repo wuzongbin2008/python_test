@@ -90,9 +90,9 @@ def create_logdir(self,path):
 
 if __name__ == "__main__":
     try:
-        log_fh = open("./logs/ex.log","r")
-        for line in log_fh:
-            print line
+        log_fh = open("log/check.log","a")
+        # for line in log_fh:
+        #     print line
 
     except Exception, e:
         print "e = %s" % e
