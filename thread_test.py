@@ -7,6 +7,7 @@ from common import worker2
 
 logging.basicConfig(level=logging.DEBUG,format='%(asctime)s (%(threadName)-10s) %(message)s',)
 n = 0
+total_count = 0
 #semaphore = threading.Semaphore(10)
 
 def lock_holder(lock):
@@ -42,21 +43,39 @@ def lock_worker(lock):
                 lock.release()
     logging.debug("Done after %d iterations",num_tries)
 
+def counter(lock):
+    global total_count
+    logging.debug("Starting")
+    #have_it = lock.acquire(0)
+    total_count +=1
+    #lock.release()
+    logging.debug("total_count = %d",total_count)
+
 def lock_test():
+    global total_count
     lock = threading.Lock()
-    holder = threading.Thread(target=lock_holder,args=(lock,),name="LockHolder")
-    holder.setDaemon(True)
-    holder.start()
+    # holder = threading.Thread(target=lock_holder,args=(lock,),name="LockHolder")
+    # holder.setDaemon(True)
+    # holder.start()
+    threads = []
+    for i in range(10):
+        worker = threading.Thread(target=counter,args=(lock,),name="Worker %d" % i)
+        threads.append(worker)
 
-    worker = threading.Thread(target=lock_worker,args=(lock,),name="Worker")
-    worker.start()
+    for i in range(10):
+        threads[i].start()
 
-def semaphore_test():
-    if semaphore.acquire():
-        for i in range(5):
-          print (threading.currentThread().getName() + ': get semaphore_%d\n' % i)
-        #semaphore.release()
-    print (threading.currentThread().getName() + ' release semaphore')
+    for i in range(10):
+        threads[i].join()
+
+    logging.debug("total_count = %d",total_count)
+
+# def semaphore_test():
+#     if semaphore.acquire():
+#         for i in range(5):
+#           print (threading.currentThread().getName() + ': get semaphore_%d\n' % i)
+#         #semaphore.release()
+#     print (threading.currentThread().getName() + ' release semaphore')
 
 def daemon():
     global n
@@ -115,4 +134,5 @@ def ActivePool_test():
         t.start()
 
 if __name__ == "__main__":
-    ActivePool_test()
+    #ActivePool_test()
+    lock_test()
