@@ -13,7 +13,7 @@ import logging
 import logging.handlers
 import os.path
 import os
-import random
+import random_test
 import time
 import fcntl
 import string
@@ -191,6 +191,6 @@ if __name__ == '__main__':
     i = 0
     while i < 10:
         i+=1
-        ri = random.randint(0, 1000)
+        ri = random_test.randint(0, 1000)
         log_handle1.logger.info("(%d)%s" % (processid, ri))
         time.sleep(0.1)

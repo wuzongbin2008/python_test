@@ -5,5 +5,17 @@ str = '{"version":1,"callbacks":1,"param":{"uid":222,"pid":333,"count":1,"size":
 
 a=json.loads(str)
 
-for i in range(3):
-    print i
+try:
+    local_idc = "TJ"
+    list = ['BJ', 'TJ', 'GZ']
+    if local_idc not in  list:
+
+        print local_idc
+
+    else:
+        print "test"
+        list[i]
+        exit(1)
+        print local_idc
+except Exception,e:
+    print e.args

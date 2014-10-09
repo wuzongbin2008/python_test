@@ -86,11 +86,12 @@ def create_logdir(self,path):
             print "create %s failed" % path
             sys.exit(1)
 
-
+def pwd():
+    print os.getcwd()
 
 if __name__ == "__main__":
     try:
-        log_fh = open("log/check.log","a")
+        pwd()
         # for line in log_fh:
         #     print line
 
