@@ -4,12 +4,13 @@ import sys
 
 def split_t():
     str = "/data0/daemons/lost_pic_count/logs/pid_lost_log_2014-10-08"
-    #str = "1.txt"
+    str = "/usr/home/wujiang1/imgbed_tools/recover_not_upload_idc/pid_lost_log_2014-10-09-recover_check_failed_pid"
     DEV_INDEX = 2
     DEV_LEN = 3
     disc = str.split('/')
-    print str.split('/')
-    print disc[5]
+    print disc
+    print len(disc)
+    print disc.pop()
 
 def eval_test():
     str = "2014-01-20 23:59:50,462 - checkin - INFO - (16467)process msg succ: {u'ip': u'10.75.24.41', 'store_id': 'data208'" \
@@ -30,5 +31,5 @@ def eval_test():
 
 if __name__ == "__main__":
 
-
-    split_t()
+    print 14661603-len('005J3VMwjw1el31dof2afj30bc0fkjsj')
+    #split_t()
