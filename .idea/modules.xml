@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../../import_blogpics_check/.idea/import_blogpics_check.iml" filepath="$PROJECT_DIR$/../../import_blogpics_check/.idea/import_blogpics_check.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../imgbed_tools/.idea/imgbed_tools.iml" filepath="$PROJECT_DIR$/../../imgbed_tools/.idea/imgbed_tools.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../../shell/shell_test/.idea/shell_test.iml" filepath="$PROJECT_DIR$/../../../shell/shell_test/.idea/shell_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/tests.iml" filepath="$PROJECT_DIR$/.idea/tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../weibo/backend/trunk/.idea/trunk.iml" filepath="$PROJECT_DIR$/../../weibo/backend/trunk/.idea/trunk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../unistore_lost_file_check/.idea/unistore_lost_file_check.iml" filepath="$PROJECT_DIR$/../../unistore_lost_file_check/.idea/unistore_lost_file_check.iml" />
     </modules>
   </component>
 </project>

@@ -6,7 +6,7 @@ import datetime
 import re
 import hmac
 import base64
-import hashlib
+import hashlib_test
 import urllib
 import httplib
 import mimetypes
@@ -783,7 +783,7 @@ class S3( object ):
 
         ssig = hmac.new( self.secretkey, \
                             strtosign, \
-                            hashlib.sha1 ).digest().encode( 'base64' )
+                            hashlib_test.sha1 ).digest().encode( 'base64' )
 
         return ssig
 
@@ -880,7 +880,7 @@ class S3( object ):
 
         policy = base64.b64encode( json.dumps( policy ).encode( 'utf-8' ) )
         ssig = base64.b64encode( hmac.new( self.secretkey, \
-                                        policy, hashlib.sha1 ).digest() )
+                                        policy, hashlib_test.sha1 ).digest() )
 
         return policy, ssig
 

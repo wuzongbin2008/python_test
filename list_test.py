@@ -1,4 +1,9 @@
 
-arr = [1,2]
+arr = [
+    ["a","b"],
+    [1,2]
+]
 
-print arr.pop()
+for k,v in arr:
+    print k
+    print v

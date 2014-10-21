@@ -10,7 +10,7 @@ __version__ = '0.1.0'
 import os
 import sys
 import time
-import hashlib
+import hashlib_test
 import pprint
 
 
@@ -27,9 +27,9 @@ def partedfile( filepath, filesplit = 1024 * 1024 * 4, cipher = 'sha1' ):
 
     with open( filepath, 'rb' ) as f:
         if cipher == 'sha1':
-            sobj = hashlib.sha1()
+            sobj = hashlib_test.sha1()
         elif cipher == 'md5':
-            sobj = hashlib.md5()
+            sobj = hashlib_test.md5()
         else:
             return
 
@@ -48,7 +48,7 @@ def partedfile( filepath, filesplit = 1024 * 1024 * 4, cipher = 'sha1' ):
             if part == '':
                 break
 
-            part_md5 = hashlib.md5()
+            part_md5 = hashlib_test.md5()
             part_md5.update( part )
             hashinfo = part_md5.hexdigest()
 

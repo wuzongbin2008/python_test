@@ -1,6 +1,33 @@
 import os
 import sys
 
+UNISTORE_PROJECTS = {
+	0 :   {
+		"name" : 'sandbox',
+		"max_size" :500000,
+		"skey" : "11111111"
+	},
+	1 :   {
+		"name" : 'video',
+		"max_size" : 2000000000,
+		"skey" : "os[n@cW8b8oKHpJJh%s_|9Ux5MN`AXK8"
+	},
+	2 :   {
+		"name" : 'tuding',
+		"max_size" : 3000000000,
+		"skey" : "L:c|k/\yHo>pbW]E=qchLc^}`g$]z//B"
+	},
+	3 :   {
+		"name" : 'miaopai',
+		"max_size" :  500000000,
+		"skey"	: "/n9WQl@=396]K/<=5LTRzF@g9[:+T]_&"
+	},
+	4 :   {
+		"name" : 'wbcamer',
+		"max_size" : 500000000,
+		"skey" :"Om@Id$Quav{og(iAc>vi=ov+wuCs;E)O"
+	},
+}
 
 def split_t():
     str = "/data0/daemons/lost_pic_count/logs/pid_lost_log_2014-10-08"
@@ -28,8 +55,26 @@ def eval_test():
     for k in info:
         print "%s = %s" % (k,info[k])
 
+def join_test():
+    s1="a"
+    print s1
+    s1+="b"
+    print s1
+    s1 +="c"
+    print s1
+
+def parse_fid(fid):
+    fid = 'ee2c4cefbd5c2ac045ffbcf73e3e1d82000252d8'
+    print fid[0:32]
+    print int(fid[32:40],16)
+
+def get_project_no(pro_name):
+    pro_no = None
+    for pro_no in UNISTORE_PROJECTS:
+        if UNISTORE_PROJECTS[pro_no]['name'] == pro_name.strip():
+            return pro_no
+    return pro_no
 
 if __name__ == "__main__":
 
-    print 14661603-len('005J3VMwjw1el31dof2afj30bc0fkjsj')
-    #split_t()
+    print get_project_no("wbcamer")

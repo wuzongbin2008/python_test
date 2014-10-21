@@ -2,11 +2,12 @@ import os
 import sys
 import time
 import re
+import gio
 import urllib2
 import httplib2
 import commands
 import threading
-import sinastorageservice as ss
+#import sinastorageservice as ss
 
 i = 0
 j = 0
@@ -60,9 +61,13 @@ def test_ex():
     except SystemExit, e:
         print e.message
 
-def read_test(file):
+def readlines_test(file):
     fp = open(file,"r")
     return fp.readlines()
+
+def read_test(file):
+    fp = open(file,"r")
+    return fp.read()
 
 def write_test(path):
     fp = open(path,"a")
@@ -89,11 +94,35 @@ def create_logdir(self,path):
 def pwd():
     print os.getcwd()
 
+def get_file_mime():
+    file = "./1.jpg"
+    gio_file = gio.File(file)
+
+    # gio_file_info = gio_file.query_info(",".join([
+    # gio.FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE,
+    # gio.FILE_ATTRIBUTE_STANDARD_TYPE,
+    # gio.FILE_ATTRIBUTE_STANDARD_NAME,
+    # gio.FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME,
+    # gio.FILE_ATTRIBUTE_STANDARD_SIZE,
+    # gio.FILE_ATTRIBUTE_STANDARD_ICON,
+    # gio.FILE_ATTRIBUTE_TIME_MODIFIED,
+    # gio.FILE_ATTRIBUTE_TIME_CHANGED,]))
+
+    gio_file_info = gio_file.query_info(",".join([
+    gio.FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE,]))
+
+    info_attr = gio_file_info.get_attribute_as_string(gio.FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE)
+
+    type_description = gio.content_type_get_description(info_attr)
+    #print type_description
+
+    mime_tye = gio.content_type_get_mime_type(info_attr)
+    print mime_tye
+
+
 if __name__ == "__main__":
     try:
-        pwd()
-        # for line in log_fh:
-        #     print line
+        get_file_mime()
 
     except Exception, e:
         print "e = %s" % e
