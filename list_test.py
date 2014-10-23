@@ -3,7 +3,6 @@ arr = [
     ["a","b"],
     [1,2]
 ]
-
-for k,v in arr:
-    print k
+arr = [1,2,3]
+for v in arr:
     print v

@@ -63,10 +63,11 @@ def join_test():
     s1 +="c"
     print s1
 
-def parse_fid(fid):
+def parse_fid():
     fid = 'ee2c4cefbd5c2ac045ffbcf73e3e1d82000252d8'
-    print fid[0:32]
-    print int(fid[32:40],16)
+    md5 = fid[0:32]
+    size = int(fid[32:40],16)
+    return md5,size
 
 def get_project_no(pro_name):
     pro_no = None
@@ -77,4 +78,6 @@ def get_project_no(pro_name):
 
 if __name__ == "__main__":
 
-    print get_project_no("wbcamer")
+    md5,size = parse_fid()
+    print md5
+    print size
