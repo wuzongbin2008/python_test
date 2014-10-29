@@ -6,7 +6,7 @@ str = '{"version":1,"callbacks":1,"param":{"uid":222,"pid":333,"count":1,"size":
 a=json.loads(str)
 
 try:
-    f = False
-    if f:print 1
+    if 10 < -1:
+        print "less"
 except Exception,e:
     print e.args

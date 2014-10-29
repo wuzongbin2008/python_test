@@ -4,10 +4,9 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="shell_test" />
-    <orderEntry type="module" module-name="trunk" />
     <orderEntry type="module" module-name="imgbed_tools" />
-    <orderEntry type="module" module-name="unistore_lost_file_check" />
+    <orderEntry type="module" module-name="shell_test" />
+    <orderEntry type="module" module-name="clear_replicate_mcq_data_corrupted" />
   </component>
 </module>
 

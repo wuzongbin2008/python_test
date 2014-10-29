@@ -16,12 +16,14 @@
     <mapping directory="$PROJECT_DIR$/../../unistore_lost_file_check" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../unistore_lost_file_check" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../unistore_lost_file_check" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../weibo/backend/branchs/clear_replicate_mcq_data_corrupted" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../../weibo/backend/trunk" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../../weibo/backend/trunk" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../../weibo/backend/trunk" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../../weibo/backend/trunk" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../../weibo/backend/trunk" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../../weibo/backend/trunk" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../../../shell/shell_test" vcs="Git" />
   </component>
 </project>
 

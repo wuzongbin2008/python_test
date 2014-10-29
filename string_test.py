@@ -76,8 +76,26 @@ def get_project_no(pro_name):
             return pro_no
     return pro_no
 
+def gen_pic_dir():
+    """ generate the path of pic on disk array
+    Argument:
+        store_id: eg: /data1
+        fid = checksum + size, checksum is md5(file contents)
+    """
+    store_id = "data257"
+    fid = "fca4ba852680d7501e4aae1fd70afa580000008e"
+    DISK_ARRAY_PREFIX = '/weibo_img/'
+
+    prefix = fid[0:2]
+    suffix = fid[2:4]
+    first_dir = int(prefix,16)
+    second_dir = int(suffix,16)
+    hash_dir = "/%03d/%03d/" % (first_dir,second_dir)
+    path = "%s%s%s" % (DISK_ARRAY_PREFIX, store_id, hash_dir)
+    print path
+    print hash_dir
+    return (path, hash_dir)
+
 if __name__ == "__main__":
 
-    md5,size = parse_fid()
-    print md5
-    print size
+    gen_pic_dir()
