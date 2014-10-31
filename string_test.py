@@ -1,5 +1,6 @@
 import os
 import sys
+import string
 
 UNISTORE_PROJECTS = {
 	0 :   {
@@ -98,4 +99,4 @@ def gen_pic_dir():
 
 if __name__ == "__main__":
 
-    gen_pic_dir()
+    print "5".isdigit()

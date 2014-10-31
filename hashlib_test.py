@@ -6,9 +6,19 @@ def read_test(file):
     return fp.read()
 
 def md5_test():
-    c = read_test("./1.jpg")
-    print len(c)
-    print hashlib.md5(c).hexdigest()
+    f = "0bf3910511d7e1393681a2b84977e2f4000000de.lar"
+    f2= "001xJ45Wjx06NaCguRQs010d0100003A0k01?ch=1.2"
+    p = "./%s" % f2
+    c = read_test(p)
+    #print len(c)
+    dcs = hashlib.md5(c).hexdigest()
+    print "dcs = %s" % dcs
+    cs = "0bf3910511d7e1393681a2b84977e2f4"
+    print "cs = %s" % cs
+    if dcs == cs:
+        print "=="
+    else:
+        print "!="
 
 def gen_fid_info():
     gfid_dict = {}
@@ -25,7 +35,7 @@ def gen_fid_info():
 
 if __name__ == "__main__":
     try:
-        gen_fid_info()
+        md5_test()
 
     except Exception, e:
         print "e = %s" % e

@@ -1,12 +1,17 @@
 import commands, os, re  
 import json
-
+import sys
+'''
 str = '{"version":1,"callbacks":1,"param":{"uid":222,"pid":333,"count":1,"size":100,"height":55,"length":66,"format":1,"exif":".jpg","ip":"127.0.0.1","appid":5}}'
 
 a=json.loads(str)
+'''
+def get_name():
+    print sys._getframe()
+    print sys._getframe().f_code
+    print sys._getframe().f_code.co_name
 
 try:
-    if 10 < -1:
-        print "less"
+    get_name()
 except Exception,e:
     print e.args
