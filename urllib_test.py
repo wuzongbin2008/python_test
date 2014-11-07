@@ -1,8 +1,10 @@
+#coding:utf-8
 import os
 import sys
 import time
 import re
 import urllib2
+import urllib
 import httplib2
 import commands
 import threading
@@ -179,13 +181,24 @@ def process_info():
         'start_time':l[6]}
     return info
 
+def urldecode_test():
+    print urllib.quote("中国")
+    print urllib.unquote("%E4%B8%AD%E5%9B%BD")
+    expires = int(time.time()) + 1800
+    url = "http://10.77.121.85/0027Tp96jx06Nj7fLLw3010f110wZaTJ0k0o?ch=23&uid=1948904720&ssig=734vpA%2BHZ6&expires=1415057485&appid=843300&kid=unistore%2Cvideo"
+    url = "http://10.77.121.85/0027Tp96jx06Nj7fLLw3010f110wZaTJ0k0o?ch=17&uid=1948904720&ssig=9BIbL6D9NT&expires=1415057462&appid=843300&kid=unistore%2Cvideo"
+    url = "http://10.77.121.85/0027Tp96jx06Nj7fLLw3010f110wZaTJ0k0o?ch=2&uid=1948904720&ssig=l8nRkP%2F6wX&expires=1415057419&appid=843300&kid=unistore%2Cvideo"
+    url = "http://10.77.121.85/0027Tp96jx06Nj7fLLw3010f110wZaTJ0k0o?ch=24&uid=1948904720&ssig=cneoR6%2FWRB&expires=1415057488&appid=843300&kid=unistore%2Cvideo"
+    print urllib.unquote(url)  #urldecode
+    arr = {}
+    arr['a']=2
+    arr['b'] =3
+    print urllib.urlencode(arr)
+
 
 if __name__ == "__main__":
     try:
-        lines = read_test("./logs/ex.log")
-        for line in lines:
-            regexp_test(line)
-
+        urldecode_test()
     except Exception, e:
         print "e = %s" % e
 

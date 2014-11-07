@@ -13,7 +13,7 @@ import logging
 import logging.handlers
 import os.path
 import os
-import random_test
+import random
 import time
 import fcntl
 import string
@@ -163,8 +163,8 @@ class NewLogHandler( logging.handlers.TimedRotatingFileHandler ):
         self.rolloverAt = newRolloverAt
 
 class Logging(object):
-    def __init__(self, logfile_name ,logger_name):
-        log_dir = os.path.dirname(logfile_name)
+    def __init__(self, log_name ,logger_name):
+        log_dir = os.path.dirname(log_name)
         if log_dir:
             if not os.path.exists(log_dir):
                 raise Exception("init Logging fail: %s log dir not exist" % log_dir)
@@ -174,7 +174,7 @@ class Logging(object):
 
         #self.file_handler = logging.handlers.TimedRotatingFileHandler(log_name, 'D', 1, 60)
         #self.file_handler = NewLogHandler(log_name, 'D', 1, 60)
-        self.file_handler = NewLogHandler(logfile_name, 'midnight', 1, 60)
+        self.file_handler = NewLogHandler(log_name, 'midnight', 1, 60)
         #self.file_handler = NewLogHandler(log_name, 'M', 1, 20)
         #self.file_handler = logging.handlers.RotatingFileHandler(log_name, maxBytes = 5 * 1024 * 1024, backupCount = 10)
         self.file_handler.setLevel(logging.DEBUG)
@@ -186,11 +186,9 @@ class Logging(object):
         self.file_handler.close()
         
 if __name__ == '__main__':
-    log_handle1 = Logging('log_test1', 'log_test22')
+    log_handle = Logging('log_test', 'log_test')
     processid = os.getpid()
-    i = 0
-    while i < 10:
-        i+=1
-        ri = random_test.randint(0, 1000)
-        log_handle1.logger.info("(%d)%s" % (processid, ri))
+    while True:
+        ri = random.randint(0, 1000)
+        log_handle.logger.info("(%d)%s" % (processid, ri))
         time.sleep(0.1)

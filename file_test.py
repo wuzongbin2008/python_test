@@ -7,7 +7,9 @@ import urllib2
 import httplib2
 import commands
 import threading
-#import sinastorageservice as ss
+
+sys.path.append('./lib')
+from logger import Logging
 
 i = 0
 j = 0
@@ -74,10 +76,6 @@ def write_test(path):
     fp.write("%s" % "test\n")
     fp.flush()
 
-def replace():
-    dir = "/opt/portraits/000/004"
-    print dir.lstrip("/").replace("/","_")
-
 def filer_test():
     line = "6795d6bf49b1fd2de739c /nfs_pics_filer28/n_pic/324/022/6795d6bf49b1fd2de739c.jpg 1"
     pid, path, flag = line.split(' ')
@@ -119,10 +117,27 @@ def get_file_mime():
     mime_tye = gio.content_type_get_mime_type(info_attr)
     print mime_tye
 
+def parse_host_ip():
+    f = "./data/host_ip"
+    fp = open(f,"r")
+    for l in fp:
+        host_ip = l.strip().split(" ")
+        if len(host_ip) == 2:
+            print host_ip
+
+def check_path_available():
+    path = "b.txt"
+    ret= os.access(path, os.F_OK|os.W_OK|os.R_OK|os.X_OK)
+    print "ret: %s"%ret
+    if ret :
+        print "b.txt is ok"
+    else:
+        print "b.txt is unavailable"
+
 
 if __name__ == "__main__":
     try:
-        get_file_mime()
+        Logging("./logs/logger_t.txt","logger_test")
 
     except Exception, e:
         print "e = %s" % e

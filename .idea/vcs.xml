@@ -6,8 +6,10 @@
     <mapping directory="$PROJECT_DIR$/../../imgbed_tools" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../import_blogpics_check" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../import_blogpics_check" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../import_blogpics_check" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../lost_file_check" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../lost_file_check" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../move_blogportrait_tos3" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../move_blogportrait_tos3" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../move_blogportrait_tos3" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../sto_integrity_check" vcs="Git" />
