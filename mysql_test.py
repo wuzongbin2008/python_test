@@ -1,4 +1,6 @@
 import os
+import logging
+import threading
 import MySQLdb
 import MySQLdb.cursors
 
@@ -8,6 +10,22 @@ user = "root"
 passwd = "sina@release&1"
 db_name = "test"
 table = "t"
+
+def select():
+    k = "aa"
+    v = "1211"
+    print "\nthread_name: %s" % threading.currentThread().getName()
+    conn = MySQLdb.connect(host = host, user = user,\
+                 passwd = passwd, db = db_name, \
+                 port = int(port), cursorclass = MySQLdb.cursors.DictCursor)
+
+    cur     = conn.cursor()
+    sqlCmd  = "select * from %s WHERE k='%s'" %(table,k)
+    print "\nsqlCmd: %s" % sqlCmd
+    #exit(0)
+    ret = cur.execute(sqlCmd)
+    row = cur.fetchone()
+    print "ret: %s\n" % str(row)
 
 def update():
     k = "aa"
@@ -37,5 +55,19 @@ def get_table_by_fid():
     print int(fid[0],16) % 4
     print "tb_fididx_0%s" % fid[1]
 
+def mysql_thread():
+    threads = []
+    for i in range(100):
+        worker = threading.Thread(target=select,name="Worker %d" % i)
+        threads.append(worker)
 
-get_table_by_fid()
+    for i in range(100):
+        threads[i].start()
+
+    # for i in range(100):
+    #     threads[i].join()
+
+
+if __name__ == "__main__":
+    mysql_thread()
+    print "main done"

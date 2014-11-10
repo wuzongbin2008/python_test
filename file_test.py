@@ -9,7 +9,6 @@ import commands
 import threading
 
 sys.path.append('./lib')
-from logger import Logging
 
 i = 0
 j = 0
@@ -137,7 +136,7 @@ def check_path_available():
 
 if __name__ == "__main__":
     try:
-        Logging("./logs/logger_t.txt","logger_test")
+        check_path_available()
 
     except Exception, e:
         print "e = %s" % e
