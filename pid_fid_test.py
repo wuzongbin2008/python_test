@@ -1,5 +1,10 @@
 import hashlib
 
+def parse_fid():
+    fid = '10f036b38011e68d46e2c287c7ac7aa500005a1d'
+    md5 = fid[0:32]
+    size = int(fid[32:40],16)
+    return md5,size
 
 def base62_decode(str):
     BASE_LIST = tuple("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
@@ -41,12 +46,6 @@ def get_pid_dbinfo():
     table = "tb_picidx_0%s" % hv[1]
     print "pid len: %d \ntable: %s \ndbno: %d"  % (len(pid),table,db_index)
 
-def parse_fid():
-    fid = '10f036b38011e68d46e2c287c7ac7aa500005a1d'
-    md5 = fid[0:32]
-    size = int(fid[32:40],16)
-    return md5,size
-
 def get_fid_dbinfo() :
     """ get host idx & table name of fid index """
     fid = '10f036b38011e68d46e2c287c7ac7aa500005a1d'
@@ -69,15 +68,21 @@ def gen_pic_dir():
 
     prefix = fid[0:2]
     suffix = fid[2:4]
+    print "prefix: %s\nsuffix: %s\n" %(prefix,suffix)
     first_dir = int(prefix,16)
     second_dir = int(suffix,16)
     hash_dir = "/%03d/%03d/" % (first_dir,second_dir)
     path = "%s%s%s" % (DISK_ARRAY_PREFIX, store_id, hash_dir)
-    print path
+    #print path
     print hash_dir
     return (path, hash_dir)
 
 
 if __name__ == "__main__":
-    get_pid_dbinfo()
-    get_fid_dbinfo()
+    h = hex(999)
+    print h
+    print int(h,16)
+    #print int("ff",16)
+    #get_pid_dbinfo()
+    #get_fid_dbinfo()
+    gen_pic_dir()
