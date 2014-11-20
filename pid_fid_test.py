@@ -39,7 +39,7 @@ def get_pid_dbinfo():
     hv = hashlib.md5(uid[0:8]).hexdigest()
     db_index = int(hv[0],16) % 4
     table = "tb_picidx_0%s" % hv[1]
-    print "pid len: %d table: %s dbno: %d"  % (len(pid),table,db_index)
+    print "pid len: %d \ntable: %s \ndbno: %d"  % (len(pid),table,db_index)
 
 def parse_fid():
     fid = '10f036b38011e68d46e2c287c7ac7aa500005a1d'
@@ -50,12 +50,12 @@ def parse_fid():
 def get_fid_dbinfo() :
     """ get host idx & table name of fid index """
     fid = '10f036b38011e68d46e2c287c7ac7aa500005a1d'
-    fid = '18b7adc9753488303da7eb36407edbc000002525 '
+    #fid = '6d76e04910761522cf4c41cb77ba98fc000527b1'
     db_index = int(fid[0], 16) % 4
     table = "tb_fididx_0%s" % fid[1]
     dbno = db_index
     table = table
-    print "len: %d table: %s dbno: %d"  % (len(fid),table,db_index)
+    print "\nlen: %d \ntable: %s \ndbno: %d"  % (len(fid),table,db_index)
 
 def gen_pic_dir():
     """ generate the path of pic on disk array
@@ -76,3 +76,8 @@ def gen_pic_dir():
     print path
     print hash_dir
     return (path, hash_dir)
+
+
+if __name__ == "__main__":
+    get_pid_dbinfo()
+    get_fid_dbinfo()
