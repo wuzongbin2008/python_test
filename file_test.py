@@ -70,9 +70,9 @@ def read_test(file):
     fp = open(file,"r")
     return fp.read()
 
-def write_test(path):
-    fp = open(path,"a")
-    fp.write("%s" % "test\n")
+def write_test(path,content):
+    fp = open(path,"w+")
+    fp.write("%s" % str(content))
     fp.flush()
 
 def filer_test():

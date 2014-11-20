@@ -14,11 +14,21 @@ def regexp_test():
 
     pattern = ".*\"(chunk\":\s+\{\"count\":\s+\d+,\s+\"info\":\s+\[.*],\s+\"chunk_size\":\s+\d+\}).*\"rep_retry\":\s+(\d+).*\"pid\": \"([A-Za-z0-9]+)\","
     pattern = "(data\d+)\.bj.+"
+    pattern = ".*_data=(.+)\s+(.*)\s+Profile:\s*\[.*\:([\d\.]*)\]{1}\s+\[{1}.*\:([\d\.]*)\]\s+\[.*\:([\d\.]*)\]\s+\[.*\:([\d\.]*)\]"
+
+    text1="accesskey=picserversweibof6vwt&_ip=10.75.60.118&_port=80&_an=IBM13060013&_data=2014-11-10 13:02:31 Profile: [resize-bmiddle:0.0084] [resize-thumbnail:0.0048] [resize-mw690:0.009] [publish:0.003]"
+
+    text1 = "111 http://www.baidu.com/aaa"
+    pattern = ".*\s+(http://.*)"
     s_ret = re.search(pattern,text1)
     if s_ret:
+        #print s_ret.group(0)
         print s_ret.group(1)
-        #print s_ret.group(2)
-        #print s_ret.group(3)
+        # print s_ret.group(2)
+        # print s_ret.group(3)
+        # print s_ret.group(4)
+        # print s_ret.group(5)
+        # print s_ret.group(6)
     else:
         print "no match"
 

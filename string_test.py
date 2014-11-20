@@ -40,71 +40,9 @@ def join_test():
     s1 +="c"
     print s1
 
-def parse_fid():
-    fid = 'ee2c4cefbd5c2ac045ffbcf73e3e1d82000252d8'
-    md5 = fid[0:32]
-    size = int(fid[32:40],16)
-    return md5,size
-
-def get_project_no(pro_name):
-    UNISTORE_PROJECTS = {
-	0 :   {
-		"name" : 'sandbox',
-		"max_size" :500000,
-		"skey" : "11111111"
-	},
-	1 :   {
-		"name" : 'video',
-		"max_size" : 2000000000,
-		"skey" : "os[n@cW8b8oKHpJJh%s_|9Ux5MN`AXK8"
-	},
-	2 :   {
-		"name" : 'tuding',
-		"max_size" : 3000000000,
-		"skey" : "L:c|k/\yHo>pbW]E=qchLc^}`g$]z//B"
-	},
-	3 :   {
-		"name" : 'miaopai',
-		"max_size" :  500000000,
-		"skey"	: "/n9WQl@=396]K/<=5LTRzF@g9[:+T]_&"
-	},
-	4 :   {
-		"name" : 'wbcamer',
-		"max_size" : 500000000,
-		"skey" :"Om@Id$Quav{og(iAc>vi=ov+wuCs;E)O"
-	},
-}
-    pro_no = None
-    for pro_no in UNISTORE_PROJECTS:
-        if UNISTORE_PROJECTS[pro_no]['name'] == pro_name.strip():
-            return pro_no
-    return pro_no
-
-def gen_pic_dir():
-    """ generate the path of pic on disk array
-    Argument:
-        store_id: eg: /data1
-        fid = checksum + size, checksum is md5(file contents)
-    """
-    store_id = "data257"
-    fid = "fca4ba852680d7501e4aae1fd70afa580000008e"
-    DISK_ARRAY_PREFIX = '/weibo_img/'
-
-    prefix = fid[0:2]
-    suffix = fid[2:4]
-    first_dir = int(prefix,16)
-    second_dir = int(suffix,16)
-    hash_dir = "/%03d/%03d/" % (first_dir,second_dir)
-    path = "%s%s%s" % (DISK_ARRAY_PREFIX, store_id, hash_dir)
-    print path
-    print hash_dir
-    return (path, hash_dir)
-
 def split_host():
     str=""
 
 
-
 if __name__ == "__main__":
-
-    print "data276".isdigit()
+    eval_test()
