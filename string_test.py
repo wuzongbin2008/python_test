@@ -8,13 +8,17 @@ def replace():
 
 def split_t():
     str = "/data0/daemons/lost_pic_count/logs/pid_lost_log_2014-10-08"
-    str = "/usr/home/wujiang1/imgbed_tools/recover_not_upload_idc/pid_lost_log_2014-10-09-recover_check_failed_pid"
+    str = "/data0/daemons/lost_file_check/logs/unsid_lost_log_2014-11-23"
     DEV_INDEX = 2
     DEV_LEN = 3
     disc = str.split('/')
-    print disc
-    print len(disc)
-    print disc.pop()
+    file_name = disc.pop()
+    parts = file_name.split("_")
+    file_date = parts.pop()
+    #print disc
+    #print len(disc)
+    print file_name
+    print file_date
 
 def eval_test():
     str = "2014-01-20 23:59:50,462 - checkin - INFO - (16467)process msg succ: {u'ip': u'10.75.24.41', 'store_id': 'data208'" \
@@ -45,4 +49,4 @@ def split_host():
 
 
 if __name__ == "__main__":
-    eval_test()
+    split_t()

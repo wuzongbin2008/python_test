@@ -56,6 +56,21 @@ def get_allfiles():
         #     #print msg
         #     raise Exception, msg
 
+def get_files_bypath():
+    path = "/opt/portraits/009/"
+    try:
+        subs = list(os.walk(path, topdown=False))
+        dir_files = []
+        #print subs
+        while len(subs):
+            d = subs.pop()
+            if len(d[2]) > 0:
+                dir_files.append(d)
+        for d in dir_files:
+            print d
+    except Exception,e:
+        print "get_files_bypath path='{pa}' exception out='{out}'".format(pa=path, out=repr(e))
+
 def test_ex():
     try:
         sys.exit("a")
@@ -136,7 +151,8 @@ def check_path_available():
 
 if __name__ == "__main__":
     try:
-        check_path_available()
+
+        get_files_bypath()
 
     except Exception, e:
         print "e = %s" % e

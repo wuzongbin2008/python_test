@@ -8,7 +8,7 @@ from common import worker2
 logging.basicConfig(level=logging.DEBUG,format='%(asctime)s (%(threadName)-10s) %(message)s',)
 n = 0
 total_count = 0
-#semaphore = threading.Semaphore(10)
+semaphore = threading.Semaphore(10)
 
 def lock_holder(lock):
     logging.debug("Starting")
@@ -70,12 +70,12 @@ def lock_test():
 
     logging.debug("total_count = %d",total_count)
 
-# def semaphore_test():
-#     if semaphore.acquire():
-#         for i in range(5):
-#           print (threading.currentThread().getName() + ': get semaphore_%d\n' % i)
-#         #semaphore.release()
-#     print (threading.currentThread().getName() + ' release semaphore')
+def semaphore_test():
+    if semaphore.acquire():
+        for i in range(5):
+          print (threading.currentThread().getName() + ': get semaphore_%d\n' % i)
+        #semaphore.release()
+    print (threading.currentThread().getName() + ' release semaphore')
 
 def daemon():
     global n

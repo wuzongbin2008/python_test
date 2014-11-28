@@ -71,6 +71,7 @@ def gen_pic_dir():
     print "prefix: %s\nsuffix: %s\n" %(prefix,suffix)
     first_dir = int(prefix,16)
     second_dir = int(suffix,16)
+    print "first_dir: %s\nsecond_dir: %s\n" %(first_dir,second_dir)
     hash_dir = "/%03d/%03d/" % (first_dir,second_dir)
     path = "%s%s%s" % (DISK_ARRAY_PREFIX, store_id, hash_dir)
     #print path
