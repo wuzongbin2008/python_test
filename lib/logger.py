@@ -2,11 +2,7 @@
 # encoding: utf-8
 # vim:fileencoding=utf-8
 """
-replicaion.py
 
-Created by wucheng@staff.sina.com.cn on 2010-06-24.
-Version 0.1
-Copyright (c) 2010 Sina Corp. All rights reserved.
 """
 
 import logging
