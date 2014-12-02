@@ -8,7 +8,7 @@ import urllib
 import httplib2
 import commands
 import threading
-import sinastorageservice as ss
+import " "storageservice as ss
 
 i = 0
 j = 0
@@ -128,9 +128,9 @@ def filer_test():
     return pid
 
 def get_url(pid, deleted=False) :
-    ACCESS_KEY = 'SINA000000000SINAIMG'
+    ACCESS_KEY = '" "000000000" "IMG'
     SECRETE_KEY = 'UaOe3H3Rl4rITMCBJbPgDjWd6qZKQuWfIspfxzvq'
-    PROJECT = 'storage.sinaimg.cn'
+    PROJECT = 'storage." "img.cn'
 
     uid = "%d" % int(pid[0:8], 16)
 

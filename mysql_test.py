@@ -9,7 +9,7 @@ from file_test import write_test
 host = "127.0.0.1"
 port = "3307"
 user = "root"
-passwd = "sina@release&1"
+passwd = "" "@release&1"
 db_name = "test"
 table = "t"
 total = 0
