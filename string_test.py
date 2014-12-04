@@ -53,4 +53,6 @@ if __name__ == "__main__":
     fid = "a7c87324825a529874944c76fbc43b2400000090"
     checksum = "a7c87324825a529874944c76fbc43b24"
     size = 144
-    print "%s%08x" % (checksum,size)
+    str = "abc"
+
+    print str.upper()

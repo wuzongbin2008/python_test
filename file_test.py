@@ -15,24 +15,30 @@ j = 0
 
 def read_dir():
     if len(sys.argv) == 1:
-        root = "/opt/portraits"
+        root = "/weibo_img/"
     else:
         root = sys.argv[1]
 
     i = 0
     k = 0
-    for dir_name, sub_dirs, files in os.walk(root):
+    for dir_name, sub_dirs, files in os.walk(root,True):
         i += 1
-        sub_dirs = ["%s/" % n for n in sub_dirs]
+        #sub_dirs = ["%s/" % n for n in sub_dirs]
         contents = files
         contents.sort()
-        print dir_name
+        print sub_dirs
+        #print dir_name
+        #print files
+        break
 
-    for filename in contents:
-        k += 1
-        print "%s\t" % filename
-    print "\n"
-    print k
+    if "data5" in sub_dirs:print "exsit"
+
+    if sub_dirs.count("data5"):print "exsit2"
+    # for filename in contents:
+    #     k += 1
+    #     print "%s\t" % filename
+    # print "\n"
+    # print k
 
 def get_allfiles():
     search_dir = "/opt/portraits"
@@ -81,8 +87,16 @@ def readlines_test(file):
     fp = open(file,"r")
     return fp.readlines()
 
-def read_test(file):
+def read_test():
+    file = "./data/identifier"
     fp = open(file,"r")
+    i = 0
+    for line in fp:
+        i+=1
+
+        if line.count("city"):
+            arr = line.split(":")
+            print "%d: %s" %(i,line)
     return fp.read()
 
 def write_test(path,content):
@@ -152,7 +166,7 @@ def check_path_available():
 if __name__ == "__main__":
     try:
 
-        get_files_bypath()
+        read_test()
 
     except Exception, e:
         print "e = %s" % e

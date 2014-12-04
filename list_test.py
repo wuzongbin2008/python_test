@@ -49,5 +49,6 @@ f = ""
 f = f.join(arr)
 ext_list = ["lar", "int", "bmi", "sml", "thu"]
 
+print len(arr)
 for e in ext_list:
-    print e
+    print
