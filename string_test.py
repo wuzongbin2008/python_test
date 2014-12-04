@@ -49,4 +49,8 @@ def split_host():
 
 
 if __name__ == "__main__":
-    split_t()
+    fid = "97e79e60f1af1a9f4572cc63ddac556600000090"
+    fid = "a7c87324825a529874944c76fbc43b2400000090"
+    checksum = "a7c87324825a529874944c76fbc43b24"
+    size = 144
+    print "%s%08x" % (checksum,size)

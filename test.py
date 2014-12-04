@@ -10,7 +10,7 @@ def get_name():
 
 def scope_test():
     try:
-        for i in range(1,5):
+        for i in 1:
             if i == 4:
                 a = "a4"
             else:
@@ -18,10 +18,12 @@ def scope_test():
         print a
     except Exception,e:
         print "ex"
+        raise
+
     print a
 
 if __name__ == "__main__":
     try:
         scope_test()
     except Exception,e:
-        print e.args
+        print "main: %s" % e.args

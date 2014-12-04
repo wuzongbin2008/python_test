@@ -2,4 +2,6 @@ import os
 import sys
 import socket
 
-print socket.gethostname()
+ip = socket.gethostbyname_ex('bjrep.service.t.sinaimg.cn')
+print ip
+#print socket.gethostname()

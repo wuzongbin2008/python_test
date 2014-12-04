@@ -1,9 +1,10 @@
 import hashlib
 
 def parse_fid():
-    fid = '10f036b38011e68d46e2c287c7ac7aa500005a1d'
+    fid = '97e79e60f1af1a9f4572cc63ddac556600000090'
     md5 = fid[0:32]
     size = int(fid[32:40],16)
+    print "md5: %s\nsize: %d\n" % (md5,size)
     return md5,size
 
 def base62_decode(str):
@@ -80,10 +81,4 @@ def gen_pic_dir():
 
 
 if __name__ == "__main__":
-    h = hex(999)
-    print h
-    print int(h,16)
-    #print int("ff",16)
-    #get_pid_dbinfo()
-    #get_fid_dbinfo()
-    gen_pic_dir()
+    parse_fid()
