@@ -166,7 +166,7 @@ def check_path_available():
 if __name__ == "__main__":
     try:
 
-        read_test()
+     read_test()
 
     except Exception, e:
         print "e = %s" % e

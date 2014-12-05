@@ -8,7 +8,6 @@ import urllib
 import httplib2
 import commands
 import threading
-import " "storageservice as ss
 
 i = 0
 j = 0
@@ -195,6 +194,8 @@ def urldecode_test():
     arr['b'] =3
     print urllib.urlencode(arr)
 
+def get_headers(link):
+    return urllib.urlopen('%s'%link).headers
 
 if __name__ == "__main__":
     try:
