@@ -24,6 +24,9 @@ def scope_test():
 
 if __name__ == "__main__":
     try:
-        scope_test()
+        pid = "61ba5575gw6db0ngfeir9j"
+        usid = "000G3CIojx06KDN0ZgFH010800pQMa0a01"
+        fid = "003ecd43c0c17cea7217ce454364c0d10002a16b"
+        print len(fid)
     except Exception,e:
         print "main: %s" % e.args

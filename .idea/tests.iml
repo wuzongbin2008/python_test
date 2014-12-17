@@ -5,8 +5,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="imgbed_tools" />
-    <orderEntry type="module" module-name="shell_test" />
-    <orderEntry type="module" module-name="unistore_lost_file_check" />
     <orderEntry type="module" module-name="move_blogportrait_tos3" />
   </component>
 </module>

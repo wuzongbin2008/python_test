@@ -54,5 +54,7 @@ if __name__ == "__main__":
     checksum = "a7c87324825a529874944c76fbc43b24"
     size = 144
     str = "abc"
+    pid = "735106c9gw1en77kxd560j20dc0hsmyl"
 
-    print str.upper()
+    print len(pid)
+    #print str.upper()
