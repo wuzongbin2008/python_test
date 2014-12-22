@@ -1,5 +1,10 @@
 import hashlib
 
+def gen_fid(checksum, size) :
+    #check_cs_size(checksum, size)
+
+    return "%s%08x" % (checksum,size)
+
 def parse_fid():
     fid = '97e79e60f1af1a9f4572cc63ddac556600000090'
     md5 = fid[0:32]
@@ -57,6 +62,11 @@ def get_fid_dbinfo() :
     table = table
     print "\nlen: %d \ntable: %s \ndbno: %d"  % (len(fid),table,db_index)
 
+def get_table_by_fid():
+    fid = "160ca6250a554fe9ca1c55e7fceebd2a000efa98"
+    print int(fid[0],16) % 4
+    print "tb_fididx_0%s" % fid[1]
+
 def gen_pic_dir():
     """ generate the path of pic on disk array
     Argument:
@@ -64,7 +74,12 @@ def gen_pic_dir():
         fid = checksum + size, checksum is md5(file contents)
     """
     store_id = "data10"
-    fid = "10f036b38011e68d46e2c287c7ac7aa500005a1d"
+    fid = "05a2434b426397566a80ffaee05fbdd9000059fe"
+    size = 23038
+    checksum = '05a2434b426397566a80ffaee05fbdd9'
+    fid2= gen_fid(checksum,size)
+    print "fid1: %s\nfid2: %s" % (fid,fid2)
+
     DISK_ARRAY_PREFIX = '/weibo_img/'
 
     prefix = fid[0:2]
@@ -81,4 +96,4 @@ def gen_pic_dir():
 
 
 if __name__ == "__main__":
-    parse_fid()
+    gen_pic_dir()

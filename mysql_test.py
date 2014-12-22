@@ -9,7 +9,7 @@ from file_test import write_test
 host = "127.0.0.1"
 port = "3307"
 user = "root"
-passwd = "" "@release&1"
+passwd = "sina@release&1"
 db_name = "test"
 table = "t"
 total = 0
@@ -57,15 +57,12 @@ def update():
     conn.commit()
 
 def dump():
-    cmd = "/usr/local/mysql-5.6.17/bin/mysql -NB -u'%s' -p'%s' -h'%s' -P'%s' -e\"select k,v from test.t limit 100 \" > %s" % (user, passwd, host, port, "./data/mysql_t")
-    #cmd = "/usr/local/mysql-5.6.17/bin/mysql -NB -u%s -p%s -h %s -P %s -e\"select k,v from t limit 1\" > %s" % (user, passwd, host, port, "./data/mysql_t")
-    print cmd
-    ret = os.system(cmd)
+    cmd = "/usr/local/mysql-5.6.17/bin/mysql -NB -u'%s' -p'%s' -h'%s' -P'%s' -e\"select id,k,v from test.t \
+    where length(k)>0 limit 100 \" > %s" % (user, passwd, host, port, "./data/mysql.test.t")
 
-def get_table_by_fid():
-    fid = "160ca6250a554fe9ca1c55e7fceebd2a000efa98"
-    print int(fid[0],16) % 4
-    print "tb_fididx_0%s" % fid[1]
+    print "dump cmd: %s" % cmd
+    ret = os.system(cmd)
+    print "dump ret: %s" % ret
 
 def mysql_thread():
     threads = []
@@ -81,6 +78,6 @@ def mysql_thread():
 
 
 if __name__ == "__main__":
-    mysql_thread()
+    dump()
 
-    print "total: %d"%total
+    #print "total: %d"%total
