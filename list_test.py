@@ -49,6 +49,9 @@ f = ""
 f = f.join(arr)
 ext_list = ["lar", "int", "bmi", "sml", "thu"]
 
-print len(arr)
-for e in ext_list:
-    print
+arr = {}
+arr['a'] = 1
+arr['b'] = 2
+#print len(arr)
+for k in arr:
+    print arr[k]

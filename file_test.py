@@ -72,6 +72,7 @@ def get_files_bypath():
             d = subs.pop()
             if len(d[2]) > 0:
                 dir_files.append(d)
+        print "dir_total: %d" % len(dir_files)
         for d in dir_files:
             print d
     except Exception,e:
@@ -99,10 +100,18 @@ def read_test():
             print "%d: %s" %(i,line)
     return fp.read()
 
-def write_test(path,content):
-    fp = open(path,"w+")
-    fp.write("%s" % str(content))
-    fp.flush()
+def write_test():
+    try:
+        d = 0
+        path = "./data/a_plus.txt"
+        content = "file write test5"
+        fp = open(path,"w+")
+        fp.write("%s" % str(content))
+
+        r = 10/0
+        #fp.flush()
+    except Exception,e:
+        print e
 
 def filer_test():
     line = "6795d6bf49b1fd2de739c /nfs_pics_filer28/n_pic/324/022/6795d6bf49b1fd2de739c.jpg 1"
@@ -166,7 +175,7 @@ def check_path_available():
 if __name__ == "__main__":
     try:
 
-     read_test()
+        write_test()
 
     except Exception, e:
         print "e = %s" % e
