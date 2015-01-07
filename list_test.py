@@ -53,5 +53,5 @@ arr = {}
 arr['a'] = 1
 arr['b'] = 2
 #print len(arr)
-for k in arr:
-    print arr[k]
+for i in range(2):
+    print i
