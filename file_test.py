@@ -175,7 +175,7 @@ def check_path_available():
 if __name__ == "__main__":
     try:
 
-        write_test()
+        get_files_bypath()
 
     except Exception, e:
         print "e = %s" % e

@@ -47,6 +47,12 @@ def join_test():
 def split_host():
     str=""
 
+def number_format():
+    s_no = 0
+    e = 10
+    while (s_no <= e):
+        print "%03d" % s_no
+        s_no += 1
 
 if __name__ == "__main__":
     fid = "97e79e60f1af1a9f4572cc63ddac556600000090"

@@ -24,10 +24,10 @@ def scope_test():
 
 if __name__ == "__main__":
     try:
-        s_no = 0
-        e = 10
-        while (s_no <= e):
-            print "%03d" % s_no
-            s_no += 1
+        n = 0
+        while n < 3:
+            print n
+            n+=1
+        print "main: %d" % n
     except Exception,e:
         print "main: %s" % e.args

@@ -3,7 +3,7 @@ import threading
 import time
 import os
 import datetime
-from common import worker2
+#from common import worker2
 
 logging.basicConfig(level=logging.DEBUG,format='%(asctime)s (%(threadName)-10s) %(message)s',)
 n = 0
@@ -135,4 +135,5 @@ def ActivePool_test():
 
 if __name__ == "__main__":
     #ActivePool_test()
-    lock_test()
+    join_test()
+    logging.debug("main thread\n")
