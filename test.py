@@ -25,6 +25,10 @@ def scope_test():
 if __name__ == "__main__":
     try:
 
-        print "main: %d" % len("/opt/portraits/001/009")
+        a = 0
+        b = 1
+        c = 2
+        d = 0
+        print c & 1
     except Exception,e:
         print "main: %s" % e.args
