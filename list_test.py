@@ -49,9 +49,10 @@ f = ""
 f = f.join(arr)
 ext_list = ["lar", "int", "bmi", "sml", "thu"]
 
-arr = []
-arr.append({"a":1})
-arr.append({"b":2})
+arr = {
+    "a":1,
+    "b":2
+}
 #arr = [1,4,3]
 #print len(arr)
 for i in arr:

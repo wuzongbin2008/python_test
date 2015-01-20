@@ -13,6 +13,8 @@ def raise_t():
 if __name__ == "__main__":
     try:
         n = 0
-        raise_t()
+        a = 10/n
     except Exception,e:
         print "main exception: %s" % e
+
+    print "end"
