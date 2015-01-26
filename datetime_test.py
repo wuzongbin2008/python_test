@@ -11,10 +11,12 @@ def get_yesterday() :
     s = "%s,%03d" % (dt, microsecond)
     print s
 
-def get_today() :
-    time_str = time.localtime(time.time())
-    yesterday = time.strftime('%Y-%m-%d %H:%M:%S', time_str)
-    print yesterday
+def get_micros() :
+    ms = time.time()
+    print ms
+    print long(ms)
+    microsecond = (ms - long(ms)) * 1000
+    print microsecond
 
 
-get_yesterday()
+get_micros()

@@ -55,12 +55,10 @@ def number_format():
         s_no += 1
 
 if __name__ == "__main__":
-    fid = "97e79e60f1af1a9f4572cc63ddac556600000090"
-    fid = "a7c87324825a529874944c76fbc43b2400000090"
-    checksum = "a7c87324825a529874944c76fbc43b24"
-    size = 144
-    str = "abc"
-    pid = "735106c9gw1en77kxd560j20dc0hsmyl"
+    str = ""
+    arr = []
+    arr.append("a")
+    arr.append("b")
 
-    print len(pid)
+    print str.join(arr)
     #print str.upper()

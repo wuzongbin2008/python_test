@@ -47,6 +47,8 @@ f = ""
 #     f.join(v)
 
 f = f.join(arr)
+print f
+exit(0)
 ext_list = ["lar", "int", "bmi", "sml", "thu"]
 
 arr = {
