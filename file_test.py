@@ -130,7 +130,7 @@ def pwd():
     print os.getcwd()
 
 def get_file_mime():
-    file = "./1.jpg"
+    file = "./data/2946117692.01.180"
     gio_file = gio.File(file)
 
     # gio_file_info = gio_file.query_info(",".join([
@@ -175,7 +175,7 @@ def check_path_available():
 if __name__ == "__main__":
     try:
 
-        get_files_bypath()
+        get_file_mime()
 
     except Exception, e:
         print "e = %s" % e
