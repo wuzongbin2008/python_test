@@ -3,7 +3,9 @@ __author__ = 'wj'
 
 s = ''
 
-if len(s):
-    print "s > 0"
-else:
-    print "s < 0"
+b = 13
+
+c = b-1 if b < 12 else -1
+
+print c
+

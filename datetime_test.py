@@ -4,17 +4,17 @@ import time
 SECONDS_PER_DAY = 0#24*3600
 
 def get_yesterday() :
+    ms = time.time()
+    microsecond = (ms - long(ms)) * 1000
     time_str = time.localtime(time.time() - SECONDS_PER_DAY)
-    yesterday = time.strftime('%Y-%m-%d', time_str)
-    return yesterday
+    dt = time.strftime('%Y-%m-%d %H:%M:%S', time_str)
+    s = "%s,%03d" % (dt, microsecond)
+    print s
 
-now = datetime.datetime.now()
-print "now = %s" % time.time()
+def get_today() :
+    time_str = time.localtime(time.time())
+    yesterday = time.strftime('%Y-%m-%d %H:%M:%S', time_str)
+    print yesterday
 
-#print now.second
-time_str = time.localtime(1415908827)
-print "get_yesterday() = %s" % get_yesterday()
-yesterday = time.strftime('%Y-%m-%d', time_str)
-#print "yesterday = %s" % yesterday
 
-#print "Y = %s" % time.strftime('%Y', time_str)
+get_yesterday()
