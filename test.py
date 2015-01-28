@@ -25,10 +25,7 @@ def scope_test():
 if __name__ == "__main__":
     try:
 
-        a = 0
-        b = 1
-        c = 2
-        d = 0
-        print c & 1
+        str = "abcd"
+        print str[1:]
     except Exception,e:
         print "main: %s" % e.args

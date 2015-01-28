@@ -3,6 +3,7 @@ import sys
 import time
 import re
 import gio
+import string
 import urllib2
 import httplib2
 import commands
@@ -89,7 +90,7 @@ def readlines_test(file):
     return fp.readlines()
 
 def read_test():
-    file = "./data/identifier"
+    file = "./data/1"
     fp = open(file,"r")
     i = 0
     for line in fp:
@@ -154,6 +155,29 @@ def get_file_mime():
     mime_tye = gio.content_type_get_mime_type(info_attr)
     print mime_tye
 
+def get_file_mine2():
+    file = "./data/3"
+    mime_type = "text/plain"
+    fp = open(file,"r")
+    str = fp.read(4)
+
+    if len(str) >= 4:
+        if ord(str[0]) == 0xff and ord(str[1]) == 0xd8:
+            mime_type = "image/jpeg"
+
+        elif ord(str[0]) == 0x89 and str[1:] == "PNG":
+            mime_type = "image/png"
+
+        elif str[0:3] == "GIF":
+            mime_type = "image/gif"
+
+        elif str[0:] == "RIFF":
+            mime_type = "image/webp"
+        else:
+            print "str[1:]: %s" % str[1:]
+    print "mime_type: %s" % mime_type
+    return mime_type
+
 def parse_host_ip():
     f = "./data/host_ip"
     fp = open(f,"r")
@@ -175,7 +199,7 @@ def check_path_available():
 if __name__ == "__main__":
     try:
 
-        get_file_mime()
+        get_file_mine2()
 
     except Exception, e:
         print "e = %s" % e
