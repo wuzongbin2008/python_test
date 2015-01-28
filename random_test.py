@@ -1,5 +1,15 @@
 import random
+import time
 
-random.seed(8)
 
-print random.randint(0,7)
+def generate_random():
+    seed = time.time()
+    print "seed: %s" % seed
+    random.seed(time.time())
+
+    print random.uniform(0, 5)
+
+    print random.randint(0, 5)
+
+
+generate_random()
