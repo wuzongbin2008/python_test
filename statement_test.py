@@ -1,6 +1,10 @@
 __author__ = 'wj'
 
+a = True
 
-for i in range(4):
-    print i
+
+while not a:
+    print "a is true"
+else:
+    print "a is false"
 

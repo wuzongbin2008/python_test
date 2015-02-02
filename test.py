@@ -25,7 +25,7 @@ def scope_test():
 if __name__ == "__main__":
     try:
 
-        str = "abcd"
-        print str[1:]
+        str = "upl001.weibo.imgbed.bx.sinanode.com"
+        print len(str)
     except Exception,e:
         print "main: %s" % e.args

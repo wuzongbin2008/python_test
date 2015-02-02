@@ -8,6 +8,7 @@ import time
 total_count = 0
 safe_exits = False
 processid = os.getpid()
+threads = []
 
 def counter(lock):
     global total_count
@@ -21,10 +22,9 @@ def counter(lock):
     #lock.release()
 
 def start_threads():
-    global total_count
+    global total_count, threads
     lock = threading.Lock()
 
-    threads = []
     for i in range(10):
         worker = threading.Thread(target=counter, args=(lock,), name="Worker %d" % i)
         worker.daemon = True
@@ -33,8 +33,8 @@ def start_threads():
     for i in range(10):
         threads[i].start()
 
-    for i in range(10):
-       threads[i].join()
+    #for i in range(10):
+    #   threads[i].join()
 
 def signal_handler(signum, frame):
     global safe_exits, processid
@@ -68,8 +68,17 @@ def main_thread_print():
 if __name__ == "__main__":
     #ActivePool_test()
     set_signal_handler()
+    
+    start_threads()
 
-    #start_threads()
-    main_thread_print()
+    while not safe_exits :
+        print "sleep 20 s\n"
+        time.sleep(20)
+    else :
+		for t in threads :
+			if t.isAlive() :
+				id = t.ident
+				t.join()
+				print "[DEBUG] join thread:", id
 
     print "main thread\n"
