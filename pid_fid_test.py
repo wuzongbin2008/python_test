@@ -45,7 +45,7 @@ def get_uid_from_pid(pid) :
          base62_decode(pid[0:8])
 
 def get_pid_dbinfo():
-    pid = "73d84b1btw1emgq2sp1ijj21kw0w0wnd"
+    pid = "cc8acc06jw1eotnfkqq3vj20dc0dcq32"
     uid = "%08x" % get_uid_from_pid(pid)
     hv = hashlib.md5(uid[0:8]).hexdigest()
     db_index = int(hv[0],16) % 4
@@ -96,4 +96,4 @@ def gen_pic_dir():
 
 
 if __name__ == "__main__":
-    gen_pic_dir()
+    get_pid_dbinfo()

@@ -6,14 +6,15 @@ def read_test(file):
     return fp.read()
 
 def md5_test():
-    f = "0bf3910511d7e1393681a2b84977e2f4000000de.lar"
-    f2= "001xJ45Wjx06NaCguRQs010d0100003A0k01?ch=1.2"
-    p = "./%s" % f2
+
+    f2= "cc8acc06jw1eotnfkqq3vj20dc0dcq32.jpg"
+    p = "./data/%s" % f2
+    print "p: %s" % p
     c = read_test(p)
     #print len(c)
     dcs = hashlib.md5(c).hexdigest()
     print "dcs = %s" % dcs
-    cs = "0bf3910511d7e1393681a2b84977e2f4"
+    cs = "cdff6831f0acaf23b0be001a59de0229"
     print "cs = %s" % cs
     if dcs == cs:
         print "=="

@@ -90,15 +90,15 @@ def readlines_test(file):
     return fp.readlines()
 
 def read_test():
-    file = "./data/1"
+    file = "./data/a"
     fp = open(file,"r")
-    i = 0
-    for line in fp:
-        i+=1
-
-        if line.count("city"):
-            arr = line.split(":")
-            print "%d: %s" %(i,line)
+    # i = 0
+    # for line in fp:
+    #     i+=1
+    #
+    #     if line.count("city"):
+    #         arr = line.split(":")
+    #         print "%d: %s" %(i,line)
     return fp.read()
 
 def write_test():
@@ -107,10 +107,9 @@ def write_test():
         path = "./data/a_plus.txt"
         content = "file write test5"
         fp = open(path,"w+")
-        fp.write("%s" % str(content))
-
-        r = 10/0
-        #fp.flush()
+        rt = fp.write("%s" % str(content))
+        fp.flush()
+        print rt
     except Exception,e:
         print e
 
@@ -199,7 +198,7 @@ def check_path_available():
 if __name__ == "__main__":
     try:
 
-        get_file_mine2()
+        write_test()
 
     except Exception, e:
         print "e = %s" % e

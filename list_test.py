@@ -1,4 +1,4 @@
-
+import os
 
 def get_project_no(pro_name):
     UNISTORE_PROJECTS = {
@@ -34,28 +34,9 @@ def get_project_no(pro_name):
             return pro_no
     return pro_no
 
-arr = [
-"a","b","c","d"
-]
+def implode():
+    array = ['This', 'is', 'some', 'Python', 'code']
+    s = '\n'.join([str(i) for i in array])
+    print s
 
-#print str.join(arr)
-#print "arr = %s" % arr
-# arr = [1,2,3]
-f = ""
-# for v in arr:
-#     #print v
-#     f.join(v)
-
-f = f.join(arr)
-print f
-exit(0)
-ext_list = ["lar", "int", "bmi", "sml", "thu"]
-
-arr = {
-    "a":1,
-    "b":2
-}
-#arr = [1,4,3]
-#print len(arr)
-for i in arr:
-    print i
+implode()
