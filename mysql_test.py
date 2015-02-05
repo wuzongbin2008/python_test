@@ -34,20 +34,14 @@ class mysql_t(object) :
 
         k = "aa"
         v = "1211"
-        print "\nthread_name: %s" % threading.currentThread().getName()
+        #print "\nthread_name: %s" % threading.currentThread().getName()
         cur     = self.conn.cursor()
         sqlCmd  = "select * from %s WHERE k='%s'" %(table,k)
-        print "\nsqlCmd: %s" % sqlCmd
+        #print "\nsqlCmd: %s" % sqlCmd
         #exit(0)
         ret = cur.execute(sqlCmd)
         row = cur.fetchone()
-
-        lock.acquire()
-        total += 1
-        write_test("./data/mysql_thread",total)
-        lock.release()
-
-        print "ret: %s\n" % str(row)
+        print row
 
     def query(self,sqltext, mode=STORE_RESULT_MODE):
         if self.conn==None or self.conn.open==False :
@@ -123,5 +117,5 @@ class mysql_t(object) :
 if __name__ == "__main__":
 
     db = mysql_t()
-    db.fetch_rows()
+    db.select()
     #print "total: %d"%total
