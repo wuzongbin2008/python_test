@@ -25,24 +25,23 @@ class mysql_t(object) :
     def __init__(self):
         self.conn = MySQLdb.connect(host = host, user = user,\
                      passwd = passwd, db = db_name, \
-                     port = int(port), cursorclass = MySQLdb.cursors.DictCursor,connect_timeout=30)
+                     port = int(port), cursorclass = MySQLdb.cursors.DictCursor, connect_timeout=30)
 
     def select(self):
-        global lock,total
+        global lock, total
 
         k = "aa"
         v = "1211"
-        #print "\nthread_name: %s" % threading.currentThread().getName()
-        cur     = self.conn.cursor()
-        sqlCmd  = "select * from %s WHERE k='%s'" %(table,k)
-        #print "\nsqlCmd: %s" % sqlCmd
-        #exit(0)
+
+        cur = self.conn.cursor()
+        sqlCmd = "select * from %s WHERE k='%s'" %(table, k)
+
         ret = cur.execute(sqlCmd)
         row = cur.fetchone()
         print row
 
     def query(self,sqltext, mode=STORE_RESULT_MODE):
-        if self.conn==None or self.conn.open==False :
+        if self.conn == None or self.conn.open == False :
             return -1
         self.conn.query(sqltext)
         if mode == 0 :
@@ -51,27 +50,30 @@ class mysql_t(object) :
             result = self.conn.use_result()
         else :
             raise Exception("mode value is wrong.")
-        return (self.conn.affected_rows(),result)
+        return (self.conn.affected_rows(), result)
 
     def fetch_queryresult(self, result, maxrows=1, how=0, moreinfo=False):
             if result == None : return None
-            dataset =  result.fetch_row(maxrows,how)
+            dataset =  result.fetch_row(maxrows, how)
+
             if moreinfo is False :
                 return dataset
             else :
                 num_fields = result.num_fields()
                 num_rows = result.num_rows()
                 field_flags = result.field_flags()
-                info = (num_fields,num_rows,field_flags)
+                info = (num_fields, num_rows, field_flags)
                 return (dataset,info)
 
     def fetch_rows(self):
+
         k = "aa"
         v = "1211"
 
         sqlCmd  = "select * from %s WHERE k='%s'" %(table,k)
 
         lines , res = self.query(sqlCmd)
+        print "lines: %d" % lines
         data = self.fetch_queryresult(res, maxrows=20, how=1, moreinfo=False)
         for r in data:
             print r
@@ -82,7 +84,7 @@ class mysql_t(object) :
         print "\nthread_name: %s" % threading.currentThread().getName()
         self.conn.autocommit(0)
         cur     = self.conn.cursor()
-        sqlCmd  = "update %s set v='%s' WHERE k='%s'" %(table,v,k)
+        sqlCmd  = "update %s set v='%s' WHERE k='%s'" %(table, v, k)
         print "\nsqlCmd: %s" % sqlCmd
         #exit(0)
         ret      = cur.execute(sqlCmd)
@@ -101,7 +103,7 @@ class mysql_t(object) :
     def mysql_thread(self):
         threads = []
         for i in range(100):
-            worker = threading.Thread(target=self.select,name="Worker %d" % i)
+            worker = threading.Thread(target=self.select, name="Worker %d" % i)
             threads.append(worker)
 
         for i in range(100):
@@ -114,5 +116,5 @@ class mysql_t(object) :
 if __name__ == "__main__":
 
     db = mysql_t()
-    db.select()
-    #print "total: %d"%total
+    #db.select()
+    db.fetch_rows()
