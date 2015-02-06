@@ -73,7 +73,7 @@ class mysql_t(object) :
         sqlCmd  = "select * from %s WHERE k='%s'" %(table,k)
 
         lines , res = self.query(sqlCmd)
-        print "lines: %d" % lines
+        print "\nlines: %d" % lines
         data = self.fetch_queryresult(res, maxrows=20, how=1, moreinfo=False)
         for r in data:
             print r
@@ -91,6 +91,9 @@ class mysql_t(object) :
         print cur.fetchone()
         print "\nret: %s\n" % str(ret)
         self.conn.commit()
+
+    def conn_close(self):
+        self.conn.close()
 
     def dump(self):
         cmd = "/usr/local/mysql-5.6.17/bin/mysql -NB -u'%s' -p'%s' -h'%s' -P'%s' -e\"select id,k,v from test.t \
@@ -118,3 +121,4 @@ if __name__ == "__main__":
     db = mysql_t()
     #db.select()
     db.fetch_rows()
+    db.conn_close()
