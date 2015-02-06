@@ -34,13 +34,11 @@ class mysql_t(object) :
         v = "1211"
 
         cur = self.conn.cursor()
-        sqlCmd = "select * from %s WHERE k='%s'" %(table, k)
+        sqlCmd = "select count(Id) as row_total from %s WHERE k='%s'" %(table, k)
 
         ret = cur.execute(sqlCmd)
-        row = cur.fetchall()
-        #print row
-        for r in row:
-            print r
+        row = cur.fetchone()
+        print "total: %d" % row['row_total']
 
     def query(self,sqltext, mode=STORE_RESULT_MODE):
         if self.conn == None or self.conn.open == False :

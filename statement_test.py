@@ -19,4 +19,13 @@ def do_while():
         print n
         n += 1
 
-do_while()
+def none_t():
+    a = None
+    if a:
+        print "a is not None"
+    else:
+        print "a is None"
+
+print "start"
+exit(0)
+none_t()
