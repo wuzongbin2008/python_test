@@ -37,8 +37,10 @@ class mysql_t(object) :
         sqlCmd = "select * from %s WHERE k='%s'" %(table, k)
 
         ret = cur.execute(sqlCmd)
-        row = cur.fetchone()
-        print row
+        row = cur.fetchall()
+        #print row
+        for r in row:
+            print r
 
     def query(self,sqltext, mode=STORE_RESULT_MODE):
         if self.conn == None or self.conn.open == False :
@@ -119,6 +121,6 @@ class mysql_t(object) :
 if __name__ == "__main__":
 
     db = mysql_t()
-    #db.select()
-    db.fetch_rows()
+    db.select()
+    #db.fetch_rows()
     db.conn_close()
