@@ -4,8 +4,6 @@ import threading
 import MySQLdb
 import MySQLdb.cursors
 
-from file_test import write_test
-
 STORE_RESULT_MODE = 0
 USE_RESULT_MODE = 1
 
@@ -70,10 +68,9 @@ class mysql_t(object) :
     def fetch_rows(self):
         k = "aa"
         v = "1211"
-        cur     = self.conn.cursor()
+
         sqlCmd  = "select * from %s WHERE k='%s'" %(table,k)
-        print "\nsqlCmd: %s" % sqlCmd
-        #exit(0)
+
         lines , res = self.query(sqlCmd)
         data = self.fetch_queryresult(res, maxrows=20, how=1, moreinfo=False)
         for r in data:
