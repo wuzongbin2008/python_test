@@ -51,6 +51,7 @@ def raise_t():
         raise DataCorruptedException("raise_t failed")
         print "after raise"
     except DataCorruptedException,e:
+        print "raise_t DataCorruptedException"
         raise DataCorruptedException("raise_t DataCorruptedException")
 
     except Exception,e:
@@ -63,19 +64,19 @@ def referenced_before_assignment():
     except Exception, e:
         print "referenced_before_assignment ex: %s" % e
 
-def exception_class_test():
+def catch_test():
     try:
         raise_t()
     except DataCorruptedException,e:
-        print "exception_class_test DataCorruptedException: %s" % e
+        print "catch_test DataCorruptedException: %s" % e
     except Exception,e:
-        print "exception_class_test Exception"
+        print "catch_test Exception"
         raise
 
 if __name__ == "__main__":
     print "start\n"
     try:
-        exception_class_test()
+        catch_test()
 
     except Exception,e:
         print "main exception: %s" % e
