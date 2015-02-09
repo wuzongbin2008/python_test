@@ -1,12 +1,21 @@
 __author__ = 'wj'
 
-def test(flag):
-    val = ""
-    if flag:
-        val = 1
-    else:
-        print 'fuck'
-    return val
+class DataCorruptedException(Exception):
+    pass
+
+def finally_test():
+    try:
+        flag = 1
+        val = ""
+        if flag:
+            val = 1
+        else:
+            print 'fuck'
+        return val
+    except Exception,e:
+        print "e: %s" % e
+    finally:
+        print "finally_test finally"
 
 def get_file_mime(file):
     #mime_type = ""
@@ -39,10 +48,13 @@ def raise_t():
     try:
         n = 0
         print "before raise"
-        raise Exception("raise_t failed")
+        raise DataCorruptedException("raise_t failed")
         print "after raise"
+    except DataCorruptedException,e:
+        raise DataCorruptedException("raise_t DataCorruptedException")
+
     except Exception,e:
-        raise Exception("raise exception reason: %s" % e)
+        raise Exception("raise_t Exception")
 
 def referenced_before_assignment():
     try:
@@ -51,14 +63,21 @@ def referenced_before_assignment():
     except Exception, e:
         print "referenced_before_assignment ex: %s" % e
 
+def exception_class_test():
+    try:
+        raise_t()
+    except DataCorruptedException,e:
+        print "exception_class_test DataCorruptedException: %s" % e
+    except Exception,e:
+        print "exception_class_test Exception"
+        raise
 
 if __name__ == "__main__":
     print "start\n"
     try:
-        file = "/opt/portraits/000/712/3022427032.01.30"
-        get_file_mime(file)
+        exception_class_test()
 
     except Exception,e:
         print "main exception: %s" % e
 
-    print "end"
+    print "\nend"

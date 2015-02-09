@@ -70,7 +70,7 @@ class mysql_t(object) :
         k = "aa"
         v = "1211"
 
-        sqlCmd  = "select * from %s WHERE k='%s'" %(table,k)
+        sqlCmd  = "select * from %s WHERE k='%s' limit 0,2" %(table,k)
 
         lines , res = self.query(sqlCmd)
         print "\nlines: %d" % lines
@@ -119,6 +119,6 @@ class mysql_t(object) :
 if __name__ == "__main__":
 
     db = mysql_t()
-    db.select()
-    #db.fetch_rows()
+    #db.select()
+    db.fetch_rows()
     db.conn_close()

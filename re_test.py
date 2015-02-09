@@ -61,10 +61,21 @@ def parse_rep_retry_log():
         #exit(0)
     print pids
 
+def data_corrupted():
+    er_msg = '2015-02-09 09:38:54,111 - replicate.BJ - ERROR - (2964)set mq back succeeded, reason: data corrupted: [50e7f9ba23d8931bfa162b82e4fd1595] [da6d339a0e4d43bd14980896c27787fe], msg: {"exif": {"YResolution": 72, "ResolutionUnit": "inches", "CustomRendered": "Normal", "ColorSpace": "sRGB", "ExifImageWidth": 150, "YCbCrPositioning": "centered", "XResolution": 72, "WhiteBalance": "Manual", "ExifImageLength": 150}, "ip": "10.75.5.93", "app": "862832", "rep_retry": 1300559, "pid": "c63dc28ejw1ep10mxqejqj2046046jr7", "ext": ".jpg", "timestamp": 1423308269, "cs": {"large": "50e7f9ba23d8931bfa162b82e4fd1595", "mw690": "88e7122368d33d2bc6f85a0b7992dfd4", "thumbnail": "e931dd8341be28b946ae21767352facc", "bmiddle": "50e7f9ba23d8931bfa162b82e4fd1595"}, "checksum": "50e7f9ba23d8931bfa162b82e4fd1595", "size": 3642}'
+
+    pattern = "data\s+corrupted:"
+    s_ret = re.search(pattern, er_msg)
+    if s_ret:
+        print "match"
+    else:
+        print "no match"
+
+
 if __name__ == "__main__":
     try:
 
-        regexp_test()
+        data_corrupted()
 
     except Exception, e:
         print "e = %s" % e

@@ -55,10 +55,5 @@ def number_format():
         s_no += 1
 
 if __name__ == "__main__":
-    str = ""
-    arr = []
-    arr.append("a")
-    arr.append("b")
-
-    print str.join(arr)
+    join_test()
     #print str.upper()
