@@ -25,6 +25,6 @@ def run_cmd(cmd):
 
 
 if __name__ == "__main__":
-    cmd = "ll /"
+    cmd = "ll ./"
     ret = run_cmd(cmd)
     print ret

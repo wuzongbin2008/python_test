@@ -26,6 +26,10 @@ def none_t():
     else:
         print "a is None"
 
+def range_t():
+    for i in range(1):
+        print i
+
+
 print "start"
-exit(0)
-none_t()
+range_t()

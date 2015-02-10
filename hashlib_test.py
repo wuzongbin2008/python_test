@@ -1,12 +1,13 @@
 import hashlib
 import json
+from common import debug
 
 def read_test(file):
     fp = open(file,"r")
     return fp.read()
 
 def md5_test():
-
+    debug("md5_test")
     f2= "cc8acc06jw1eotnfkqq3vj20dc0dcq32.jpg"
     p = "./data/%s" % f2
     print "p: %s" % p

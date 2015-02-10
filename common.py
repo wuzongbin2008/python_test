@@ -6,10 +6,15 @@ import urllib2
 import httplib2
 import commands
 import threading
-import storageservice as ss
+#from hashlib_test import md5_test
 
 i = 0
 j = 0
+DEBUG = 1
+
+def debug(msg):
+    if DEBUG:
+        print msg
 
 def read_dir():
     if len(sys.argv) == 1:
@@ -179,6 +184,8 @@ def process_info():
         'start_time':l[6]}
     return info
 
+# def import_t():
+#     md5_test()
 
 if __name__ == "__main__":
     try:
