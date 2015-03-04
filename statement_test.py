@@ -31,5 +31,7 @@ def range_t():
         print i
 
 
-print "start"
-range_t()
+s = "a"
+t = "c"
+b = s if t == "c" else "b"
+print b

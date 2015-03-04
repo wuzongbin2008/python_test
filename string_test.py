@@ -3,18 +3,18 @@ import sys
 import string
 
 def replace():
-    dir = "/opt/portraits/000/004"
-    print dir.lstrip("/").replace("/","_")
+    dir = "2776101832/30"
+    print dir.lstrip("/").replace("/",".01.")
 
 def split_t():
-    str = "/data0/daemons/lost_pic_count/logs/pid_lost_log_2014-10-08"
-    str = "/data0/daemons/lost_file_check/logs/unsid_lost_log_2014-11-23"
+    str = "/data0/daemons/lost_pic_count/logs/pid_lost_log_2015-02-09_bak"
+    #str = "/data0/daemons/lost_file_check/logs/unsid_lost_log_2014-11-23"
     DEV_INDEX = 2
     DEV_LEN = 3
     disc = str.split('/')
     file_name = disc.pop()
     parts = file_name.split("_")
-    file_date = parts.pop()
+    file_date = parts[3] #parts.pop()
     #print disc
     #print len(disc)
     print file_name
@@ -55,5 +55,8 @@ def number_format():
         s_no += 1
 
 if __name__ == "__main__":
-    join_test()
+    pid_lost_log = 'pid_lost_log_2015-02-11_new-recover_failed_pid'
+    parts = pid_lost_log.split('_')
+    log_date = parts[3]
+    print log_date
     #print str.upper()

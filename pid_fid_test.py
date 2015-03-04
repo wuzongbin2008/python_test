@@ -45,7 +45,7 @@ def get_uid_from_pid(pid) :
          base62_decode(pid[0:8])
 
 def get_pid_dbinfo():
-    pid = "cc8acc06jw1eotnfkqq3vj20dc0dcq32"
+    pid = "005M5HiJgw1ep4dkx85r2j30go17s7hdt"
     uid = "%08x" % get_uid_from_pid(pid)
     hv = hashlib.md5(uid[0:8]).hexdigest()
     db_index = int(hv[0],16) % 4
